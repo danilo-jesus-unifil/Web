@@ -1,0 +1,107 @@
+
+body{
+    font-family: "Atkinson Hyperlegible Next", sans-serif;
+    background-color: rgb(66, 66, 66);
+}/*Negocio para dar a fonte do google para todo mundo */
+
+
+img{
+    width: 50%;
+    border-radius: 10%;
+    border: 20px solid  rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    object-position: center;
+}
+
+a{
+    color:rgb(0, 140, 255);
+    text-decoration:none;
+}
+
+b{
+    color:rgb(0, 72, 255);
+    text-decoration: underline 2px;
+}
+
+
+header{
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1{
+    color: rgb(98, 85, 182);
+    text-align: center;
+    border-right: 4px solid rgba(0, 0, 0, 0.1);/*uma bordinha de apenas detalhe, mas*/
+    border-left: 4px solid rgba(0, 0, 0, 0.1);/*é um detalhe bem especial e bonitinho*/
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+h2{
+    color:rgb(134, 78, 78);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: fit-content;/*isso aqui é pro negocio se alinhar segundo o conteudo, eu gostei bastante disso*/
+}
+
+ul{
+    list-style:georgian;
+}
+
+ol{
+    list-style: upper-roman;
+}
+
+ol > li::marker{/* tive que pesquisar para achar isso aí */
+    color:red;
+    font-weight: 500;
+}
+
+.Bolha{
+    margin: 30px;
+    background-color: rgb(228, 225, 211);
+    color: rgb(70, 70, 70);
+    padding: 50px;
+    border-radius: 50px;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+}
+
+#Vida{
+    color: rgb(150, 10, 10, 0.95);
+    font-size: large;
+    font-weight: 500;
+}
+
+#Energia{
+    color: rgb(10, 150, 150, 0.95);
+    font-style: italic;
+    font-weight: 500;
+}
+
+#Força{
+    color: rgb(150, 89, 0, 0.95);
+    font-weight: 700;
+}
+
+#Inteligência{
+    color:rgb(10, 100, 150, 0.95);
+    font-style: oblique;
+}
+
+#Agilidade{
+    color:rgb(74, 150, 0, 0.95);
+    font-style: italic;
+    font-weight: 300;
+}
+
+#Vontade{
+    color:rgb(150, 0, 100);
+    font-style: normal;
+    font-weight: 450;
+}
