@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <title>Inscrição</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            color: rgb(98, 85, 182);
+            text-align: center;
+            border-right: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: clamp(26px, 4vw, 40px);
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            color: rgb(134, 78, 78);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            width: fit-content;
+        }
+
+        body{
+            margin: 0;
+            padding: 18px 0;
+            font-family: "Atkinson Hyperlegible Next", sans-serif;
+            background-color: rgb(66, 66, 66);
+        }
+
+        p {
+            text-align: justify;
+            width: 100%;
+            margin: 0;
+        }
+
+        textarea{
+            width: 100%;
+            min-height: 78px;
+            resize: vertical;   
+            max-height: 220px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            background-color: rgb(236, 234, 225);
+            accent-color: rgba(189, 94, 94, 0.8);
+        }
+
+        input{
+            width: 100%;
+            min-width: 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            background-color: rgb(236, 234, 225);
+            accent-color: rgba(189, 94, 94, 0.8);
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        button{
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(189, 94, 94, 0.7);
+            font-weight: 600;
+        }
+
+        button:hover{
+            background-color: rgba(189, 94, 94, 1);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        select{
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            background-color: rgb(236, 234, 225);
+            color: rgb(70, 70, 70);
+            color-scheme: light;
+            accent-color: rgba(189, 94, 94, 0.8);
+        }
+
+        input[type="date"] {
+            accent-color: rgba(189, 94, 94, 0.8);
+        }
+
+
+        select:hover{
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color:  rgba(189, 94, 94, 0.8);
+        }
+
+        input[type="file"]::file-selector-button {
+            background-color:   rgba(189, 94, 94, 0.8);
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+
+            padding: 10px 15px;
+            margin-right: 10px;
+
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color:  rgba(189, 94, 94, 1);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus-visible {
+            outline: 3px solid rgba(189, 94, 94, 0.8);
+            outline-offset: 2px;
+        }
+
+        .Bolha{
+            width: min(900px, calc(100% - 48px));
+            margin: 30px auto;
+            background-color: rgb(228, 225, 211);
+            color: rgb(70, 70, 70);
+            padding: 50px;
+            border-radius: 50px;
+            border: 10px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .campos-grade{
+            display:grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 16px;
+        }
+
+        .campos{
+            min-width: 0;
+            margin: 0;
+            display:flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .foco{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 10px;
+            min-width: 0;
+            margin: 0;
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        .foco:hover{
+            background-color: rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+        }
+
+        .label_per{
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        #foco_personagem{
+            display:grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 8px 12px;
+        }
+
+        form > .Bolha:last-child {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .Bolha {
+                width: calc(100% - 24px);
+                margin: 12px auto;
+                padding: 24px;
+                border-width: 6px;
+                border-radius: 30px;
+            }
+
+            .campos-grade {
+                grid-template-columns: 1fr;
+            }
+
+            #foco_personagem {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 380px) {
+            .Bolha {
+                padding: 18px;
+                border-radius: 22px;
+            }
+
+            #foco_personagem {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="Bolha">
+        <h1>Bem-vindo ao Formulário de Inscrição do Enercom!</h1>
+
+        <br>
+        <p>Este é o formulário de inscrição para a participação do RPG do sistema Enercom. Então nos passe algumas informações para ver se o seu jeito de pensar é o mesmo que o nosso.</p>
+    </div>
+
+    <form>
+
+        <div class="Bolha">
+            <h2>Informações Pessoais</h2>
+
+            <div class="campos-grade">
+                <div class="campos"><label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex.: João Pedro Sambatti" required></div>
+
+                <div class="campos"><label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Ex.: joao.pedro.sambatti@gmail.com" required></div>
+
+                <div class="campos"><label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required></div>
+
+                <div class="campos"><label for="confirmar_senha">Repetir a senha:</label>
+                <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Repita sua senha" required></div>
+            </div>
+        </div>
+
+
+
+        <div class="Bolha">
+            <h2>Informações do personagem</h2>
+
+            <div class="campos-grade">
+                <div class="campos"><label for="nome_personagem">Nome:</label>
+                <input type="text" id="nome_personagem" name="nome_personagem" placeholder="Ex.: Romeno de Antares" required></div>
+
+                <div class="campos"><label for="alinhamento_personagem">Alinhamento:</label>
+                <select name="alinhamento_personagem" id="alinhamento_personagem">
+                    <option value="neutro">Neutro</option>
+                    <option value="leal_bom">Leal e Bom</option>
+                    <option value="neutro_bom">Neutro e Bom</option>
+                    <option value="caotico_bom">Caotico e Bom</option>
+                    <option value="caotico_neutro">Caotico e Neutro</option>
+                    <option value="leal_neutro">Leal e Neutro</option>
+                    <option value="leal_mal">Leal e Mal</option>
+                    <option value="neutro_mal">Neutro e Mal</option>
+                    <option value="caotico_mal">Caotico e Mal</option>
+                </select>
+                </div>
+
+                <div class="campos"><label for="curso">Curso:</label>
+                <select name="curso" id="curso">
+                    <option value="">Nenhum</option>
+                    <option value="carpintaria">Carpintaria</option>
+                    <option value="metalurgia">Metalurgia</option>
+                    <option value="medicina">Medicina</option>
+                    <option value="mercantil">Mercantil</option>
+                    <option value="engenharia">Engenharia</option>
+                    <option value="agricultura">Agricultura</option>
+                    <option value="arquitetura">Arquitetura</option>
+                    <option value="outro">Outro</option>
+                </select></div>
+
+                <div class="campos"><label for="data_nascimento">Nascido em:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required></div>
+            </div>
+
+            <div class="campos-grade">
+                <div class="campos"><label for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo">
+                    <option value="">Prefiro não informar</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select></div>
+
+                <div class="campos"><label for="interesses">Interesses:</label>
+                <input type="text" id="interesses" name="interesses" placeholder="Ex.: Leitura, Música, Lutas, Esportes, Artes, Tecnologia, Comercio..."></div>
+
+                <div class="campos"><label for="comentarios">Comentários:</label>
+                <textarea id="comentarios" name="comentarios" placeholder="Digite seus comentários e os do personagem aqui..."></textarea></div>
+
+                <div class="campos"><label for="foto">Upload de foto:</label>
+                <input type="file" id="foto" name="foto" accept="image/*"></div>
+            </div>
+
+            <br>
+                <label for="foco_personagem" class="label_per">O que você gostaria de focar no personagem?</label>
+            <div class="campos-grade" id="foco_personagem">      
+                <label class="campos foco"><input type="checkbox" name="foco_per_historia" value="historia"> História</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_habilidades" value="habilidades"> Habilidades</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_personalidade" value="personalidade"> Personalidade</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_aparencia" value="aparencia"> Aparência</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_relacionamentos" value="relacionamentos"> Relacionamentos</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_objetivos" value="objetivos"> Objetivos</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_passado" value="passado"> Passado</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_futuro" value="futuro"> Futuro</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_social" value="social"> Social</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_escolha_mim" value="escolha_mim"> Escolha por mim</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_aleatorio" value="aleatorio"> Aleatório</label>
+                <label class="campos foco"><input type="checkbox" name="foco_per_outro" value="outro"> Outro</label>
+            </div>
+
+        </div>
+        <div class="Bolha">
+            <button type="submit">Enviar Inscrição</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
